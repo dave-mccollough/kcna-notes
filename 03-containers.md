@@ -85,3 +85,84 @@
   - User Namespaces and Cgroups
     - Utilizes Linux kernal technologies to provided isolated environments with their own users, hostnames, IP addresses, mount points and resource allocations
 
+## Docker Desktop Installation and Configuration
+
+- Traditional Docker
+  - Installed on a Linux system
+  - Uses Containerd and Runc to to run containers
+  - Use CLI to run an build containers
+
+- Docker Desktop
+  - Uses a hiden VM or subsystem to run an isolated instance of Docker
+  - Depending on the host operating system, uses different virtualization technologies
+    - Windows - HyperV/WSL
+    - Mac - Hyperkit/QEMU
+    - Linux - KVM/QEMU
+  - Uses hidden VM to configure a Linux operating system with the Docker runtime
+
+## Container Images
+
+- What is a container image
+  - A portable, self contained bundle of sofware and dependencies
+  - Allows us to run software consistently across compute enviornments
+  - Sometimes refered to as a Docker image
+    - Should be: OCI Compliant Container Image
+    - OCI Compliant Container Images can be used anywhere that support OCI container images
+      - Docker
+      - Kubernetes
+      - AWS ECS
+
+- Container Image vs Container
+  - Container Image
+    - Bundle of Software
+  - Container
+    - Instance of the software that is being run
+  - Tag
+    - Label used to distinguish the a version of the container image
+    - Tags are flexible and can be used to satisfy your container image requirements
+    - `latest` tag
+      - Default tag used if tag is not specified
+      - Doesn't always apply to the latest version of a container image.. you may hve new images with different tags
+
+- Container Layers
+  - Container image is composed of multiple layers stacked on top of each other
+  - Each layer represents a modification to the filesystem inside the container
+  - Each layer is immutable
+  - Thin accessible writeable layer on the top
+  - Only layer that changes is the thin writable layer
+  - Union Filesystem
+    - Merges each layer into a single view
+  - Digest
+    - Hash of the images content, layers and metadata using sha256
+    - Verify image integrety
+    - Should match digest in Docker hub
+    - Can pull image using digest if you want to be specific
+      - `docker pull docker.io/wernight/funbox@sha256.... digest here`
+    - Can add digest to `docker images` command
+      - `docker images --digests`
+  - Can inspect layers using `docker manifest`
+    - `docker manifest inspect wernight/funbox`
+
+- Running Containers
+  - `docker version`
+    - Version of Docker client and server
+    - Docker desktop runs both the client and the server
+    - containerd
+      - High level container runtime
+    - runc
+      - Low level container runtime
+  - `docker --help` or `docker --help | more`
+    - See all Docker commands
+    - Add help to specific commands
+      - `docker run --help | more`
+  - `docker ps` or `docker ps -a`
+    - List currently running containers or all containers (`-a`)
+
+- Container Network Services and Volumes
+  - 
+
+
+ 
+
+
+
