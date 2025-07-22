@@ -9,3 +9,4 @@
 - [Course Introduction](01-course-introduction.md)
 - [Cloud Native Architecture Fundamentals](02-cloud-native-fundamentals.md)
 - [Containers with Docker](03-containers.md)
+- [Kubernetes Fundamentals](04-kubernetes-fundamentals.md)

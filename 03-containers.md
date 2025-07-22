@@ -158,8 +158,7 @@
   - `docker ps` or `docker ps -a`
     - List currently running containers or all containers (`-a`)
 
-- Container Network Services and Volumes
-  - 
+
 
 
  
